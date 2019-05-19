@@ -1,0 +1,75 @@
+50.0.0.1: Notificacion: *Apr  4 16:14:10.03: Configured from console by console
+50.0.0.1: Notificacion: *Apr  4 16:15:58.95: Configured from console by console
+50.0.0.1: Notificacion: *Mar  1 00:02:10.51: Interface Serial0/0, changed state to administratively down
+50.0.0.1: Error: *Mar  1 00:02:19.79: Interface Serial0/0, changed state to up
+50.0.0.1: Notificacion: *Mar  1 00:02:20.79: Line protocol on Interface Serial0/0, changed state to up
+50.0.0.1: Notificacion: *Mar  1 00:02:42.14: Line protocol on Interface Serial0/0, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:02:57.65: Configured from console by console
+50.0.0.1: Notificacion: *Mar  1 00:03:43.39: Interface Serial0/0, changed state to administratively down
+50.0.0.1: Error: *Mar  1 00:04:05.17: Interface Serial0/0, changed state to up
+50.0.0.1: Notificacion: *Mar  1 00:04:06.18: Line protocol on Interface Serial0/0, changed state to up
+50.0.0.1: Notificacion: *Mar  1 00:04:32.13: Line protocol on Interface Serial0/0, changed state to down
+50.0.0.1: Informacion: *Mar  1 00:01:07.26: Logging to host 50.0.0.2 port 2000 started - CLI initiated
+50.0.0.1: Informacion: *Mar  1 00:00:03.32: ISAKMP is OFF
+50.0.0.1: Informacion: *Mar  1 00:00:03.32: GDOI is OFF
+50.0.0.1: Informacion: *Mar  1 00:00:03.44: Logging to host 50.0.0.2 port 2000 started - CLI initiated
+50.0.0.1: Notificacion: *Mar  1 00:00:04.14: Line protocol on Interface FastEthernet0/0, changed state to up
+50.0.0.1: Notificacion: *Mar  1 00:00:04.14: Line protocol on Interface FastEthernet0/1, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:00:04.15: Line protocol on Interface Serial0/0, changed state to up
+50.0.0.1: Notificacion: *Mar  1 00:00:04.15: Line protocol on Interface Serial0/1, changed state to up
+50.0.0.1: Notificacion: *Mar  1 00:00:04.15: Line protocol on Interface Serial0/2, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:00:04.16: Line protocol on Interface Serial0/3, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:00:04.16: Line protocol on Interface FastEthernet1/0, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:00:04.16: Line protocol on Interface FastEthernet2/0, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:00:32.16: Line protocol on Interface Serial0/0, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:00:32.23: Line protocol on Interface Serial0/1, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:00:54.37: Configured from console by console
+50.0.0.1: Informacion: *Mar  1 00:00:03.27: ISAKMP is OFF
+50.0.0.1: Informacion: *Mar  1 00:00:03.27: GDOI is OFF
+50.0.0.1: Informacion: *Mar  1 00:00:03.39: Logging to host 50.0.0.2 port 2000 started - CLI initiated
+50.0.0.1: Notificacion: *Mar  1 00:00:04.10: Line protocol on Interface FastEthernet0/0, changed state to up
+50.0.0.1: Notificacion: *Mar  1 00:00:04.11: Line protocol on Interface FastEthernet0/1, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:00:04.25: Line protocol on Interface Serial0/0, changed state to up
+50.0.0.1: Notificacion: *Mar  1 00:00:04.25: Line protocol on Interface Serial0/1, changed state to up
+50.0.0.1: Notificacion: *Mar  1 00:00:04.26: Line protocol on Interface Serial0/2, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:00:04.26: Line protocol on Interface Serial0/3, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:00:04.26: Line protocol on Interface FastEthernet1/0, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:00:04.26: Line protocol on Interface FastEthernet2/0, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:00:32.18: Line protocol on Interface Serial0/0, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:00:32.25: Line protocol on Interface Serial0/1, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:01:00.73: Configured from console by console
+50.0.0.1: Informacion: *Mar  1 00:00:03.20: ISAKMP is OFF
+50.0.0.1: Informacion: *Mar  1 00:00:03.20: GDOI is OFF
+50.0.0.1: Informacion: *Mar  1 00:00:03.31: Logging to host 50.0.0.2 port 2000 started - CLI initiated
+50.0.0.1: Notificacion: *Mar  1 00:00:04.16: Line protocol on Interface FastEthernet0/0, changed state to up
+50.0.0.1: Notificacion: *Mar  1 00:00:04.17: Line protocol on Interface FastEthernet0/1, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:00:04.17: Line protocol on Interface Serial0/0, changed state to up
+50.0.0.1: Notificacion: *Mar  1 00:00:04.18: Line protocol on Interface Serial0/1, changed state to up
+50.0.0.1: Notificacion: *Mar  1 00:00:04.18: Line protocol on Interface Serial0/2, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:00:04.18: Line protocol on Interface Serial0/3, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:00:04.18: Line protocol on Interface FastEthernet1/0, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:00:04.19: Line protocol on Interface FastEthernet2/0, changed state to down
+50.0.0.1: Notificacion: *Mar  1 00:00:32.17: Line protocol on Interface Serial0/0, changed state to down
+POST Request: https://api.twilio.com/2010-04-01/Accounts/AC82547c8b8ab90f2700ac5d02de712f4e/Messages.json
+PAYLOAD: {'To': '+5215572316487', 'From': '+12028835634', 'Body': '50.0.0.1Notificacion: *Mar  1 00:00:32.17: Line protocol on Interface Serial0/0, changed state to down'}
+Starting new HTTPS connection (1): api.twilio.com:443
+https://api.twilio.com:443 "POST /2010-04-01/Accounts/AC82547c8b8ab90f2700ac5d02de712f4e/Messages.json HTTP/1.1" 201 906
+POST Response: 201 {"sid": "SM8db949d499564496b84ba7b739e2bd5b", "date_created": "Thu, 04 Apr 2019 22:33:11 +0000", "date_updated": "Thu, 04 Apr 2019 22:33:11 +0000", "date_sent": null, "account_sid": "AC82547c8b8ab90f2700ac5d02de712f4e", "to": "+5215572316487", "from": "+12028835634", "messaging_service_sid": null, "body": "Sent from your Twilio trial account - 50.0.0.1Notificacion: *Mar  1 00:00:32.17: Line protocol on Interface Serial0/0, changed state to down", "status": "queued", "num_segments": "1", "num_media": "0", "direction": "outbound-api", "api_version": "2010-04-01", "price": null, "price_unit": "USD", "error_code": null, "error_message": null, "uri": "/2010-04-01/Accounts/AC82547c8b8ab90f2700ac5d02de712f4e/Messages/SM8db949d499564496b84ba7b739e2bd5b.json", "subresource_uris": {"media": "/2010-04-01/Accounts/AC82547c8b8ab90f2700ac5d02de712f4e/Messages/SM8db949d499564496b84ba7b739e2bd5b/Media.json"}}
+50.0.0.1: Notificacion: *Mar  1 00:00:32.18: Line protocol on Interface Serial0/1, changed state to down
+POST Request: https://api.twilio.com/2010-04-01/Accounts/AC82547c8b8ab90f2700ac5d02de712f4e/Messages.json
+PAYLOAD: {'To': '+5215572316487', 'From': '+12028835634', 'Body': '50.0.0.1Notificacion: *Mar  1 00:00:32.18: Line protocol on Interface Serial0/1, changed state to down'}
+Starting new HTTPS connection (1): api.twilio.com:443
+https://api.twilio.com:443 "POST /2010-04-01/Accounts/AC82547c8b8ab90f2700ac5d02de712f4e/Messages.json HTTP/1.1" 201 906
+POST Response: 201 {"sid": "SM46bc8485d52f4e21a073a4d7ab950dd5", "date_created": "Thu, 04 Apr 2019 22:33:14 +0000", "date_updated": "Thu, 04 Apr 2019 22:33:14 +0000", "date_sent": null, "account_sid": "AC82547c8b8ab90f2700ac5d02de712f4e", "to": "+5215572316487", "from": "+12028835634", "messaging_service_sid": null, "body": "Sent from your Twilio trial account - 50.0.0.1Notificacion: *Mar  1 00:00:32.18: Line protocol on Interface Serial0/1, changed state to down", "status": "queued", "num_segments": "1", "num_media": "0", "direction": "outbound-api", "api_version": "2010-04-01", "price": null, "price_unit": "USD", "error_code": null, "error_message": null, "uri": "/2010-04-01/Accounts/AC82547c8b8ab90f2700ac5d02de712f4e/Messages/SM46bc8485d52f4e21a073a4d7ab950dd5.json", "subresource_uris": {"media": "/2010-04-01/Accounts/AC82547c8b8ab90f2700ac5d02de712f4e/Messages/SM46bc8485d52f4e21a073a4d7ab950dd5/Media.json"}}
+50.0.0.1: Notificacion: *Mar  1 00:01:31.19: IP-EIGRP(0) 100
+POST Request: https://api.twilio.com/2010-04-01/Accounts/AC82547c8b8ab90f2700ac5d02de712f4e/Messages.json
+PAYLOAD: {'To': '+5215572316487', 'From': '+12028835634', 'Body': '50.0.0.1Notificacion: *Mar  1 00:01:31.19: IP-EIGRP(0) 100'}
+Starting new HTTPS connection (1): api.twilio.com:443
+https://api.twilio.com:443 "POST /2010-04-01/Accounts/AC82547c8b8ab90f2700ac5d02de712f4e/Messages.json HTTP/1.1" 201 862
+POST Response: 201 {"sid": "SM9bb441735849402798a0473c6ac344bf", "date_created": "Thu, 04 Apr 2019 22:34:05 +0000", "date_updated": "Thu, 04 Apr 2019 22:34:05 +0000", "date_sent": null, "account_sid": "AC82547c8b8ab90f2700ac5d02de712f4e", "to": "+5215572316487", "from": "+12028835634", "messaging_service_sid": null, "body": "Sent from your Twilio trial account - 50.0.0.1Notificacion: *Mar  1 00:01:31.19: IP-EIGRP(0) 100", "status": "queued", "num_segments": "1", "num_media": "0", "direction": "outbound-api", "api_version": "2010-04-01", "price": null, "price_unit": "USD", "error_code": null, "error_message": null, "uri": "/2010-04-01/Accounts/AC82547c8b8ab90f2700ac5d02de712f4e/Messages/SM9bb441735849402798a0473c6ac344bf.json", "subresource_uris": {"media": "/2010-04-01/Accounts/AC82547c8b8ab90f2700ac5d02de712f4e/Messages/SM9bb441735849402798a0473c6ac344bf/Media.json"}}
+50.0.0.1: Notificacion: *Mar  1 00:01:32.16: Line protocol on Interface Serial0/0, changed state to up
+POST Request: https://api.twilio.com/2010-04-01/Accounts/AC82547c8b8ab90f2700ac5d02de712f4e/Messages.json
+PAYLOAD: {'To': '+5215572316487', 'From': '+12028835634', 'Body': '50.0.0.1Notificacion: *Mar  1 00:01:32.16: Line protocol on Interface Serial0/0, changed state to up'}
+Starting new HTTPS connection (1): api.twilio.com:443
+https://api.twilio.com:443 "POST /2010-04-01/Accounts/AC82547c8b8ab90f2700ac5d02de712f4e/Messages.json HTTP/1.1" 201 904
+POST Response: 201 {"sid": "SM9ef5a8f4d2db46e8b20d92cebe8e866e", "date_created": "Thu, 04 Apr 2019 22:34:09 +0000", "date_updated": "Thu, 04 Apr 2019 22:34:09 +0000", "date_sent": null, "account_sid": "AC82547c8b8ab90f2700ac5d02de712f4e", "to": "+5215572316487", "from": "+12028835634", "messaging_service_sid": null, "body": "Sent from your Twilio trial account - 50.0.0.1Notificacion: *Mar  1 00:01:32.16: Line protocol on Interface Serial0/0, changed state to up", "status": "queued", "num_segments": "1", "num_media": "0", "direction": "outbound-api", "api_version": "2010-04-01", "price": null, "price_unit": "USD", "error_code": null, "error_message": null, "uri": "/2010-04-01/Accounts/AC82547c8b8ab90f2700ac5d02de712f4e/Messages/SM9ef5a8f4d2db46e8b20d92cebe8e866e.json", "subresource_uris": {"media": "/2010-04-01/Accounts/AC82547c8b8ab90f2700ac5d02de712f4e/Messages/SM9ef5a8f4d2db46e8b20d92cebe8e866e/Media.json"}}

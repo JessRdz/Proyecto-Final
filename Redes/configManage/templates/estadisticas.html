@@ -1,0 +1,198 @@
+{% extends "base_generic.html" %}
+{% block title %}<title>Performance Management</title>{% endblock %}
+
+{% block content %}
+<h1>Performance Management</h1>
+<div class="row">
+	<h4>Rendimiento del dispositivo</h4>
+	<form action='mostrarPerformance' method='POST'>{% csrf_token %}
+		<label for="ip_source"> Mostrar rendimiento del dispositivo: </label><br>
+		<input id="ip_source" type="text" name="ip_source" placeholder="IP origen">
+		<label for="fecha_ini"> del </label>
+		<input id="fecha_ini" type="datetime-local" name="fecha_ini" placeholder="Fecha inicio">
+		<label for="fecha_fin"> al </label>
+		<input id="fecha_fin" type="datetime-local" name="fecha_fin" placeholder="Fecha fin">
+		<input type="submit" value="Mostrar">
+	</form>
+	{% if valoresCPU%}
+	<canvas id="cpuChart" width="400" height="100"></canvas> <br><br>
+	{% endif %}
+
+    {% if valoresMemoria%}
+	<canvas id="memoriaChart" width="400" height="100"></canvas> <br><br>
+	{% endif %}
+
+    {% if valoresInterfazIn%}
+	<canvas id="intinChart" width="400" height="100"></canvas> <br><br>
+	{% endif %}
+
+     {% if valoresInterfazOut%}
+	<canvas id="intoutChart" width="400" height="100"></canvas> <br><br>
+	{% endif %}
+</div>
+{% endblock %}
+
+<script>
+{% block jquery %}
+
+	var cpuData = {{ valoresCPU }};
+	var cpuFechas = {{ fechasCPU|safe }};
+	var cpuMaxvalue = 100;
+	var cpuTitle = 'Uso del CPU';
+
+	var ctx = document.getElementById('cpuChart').getContext('2d');
+	var cpuChart = new Chart(ctx, {
+		type: 'line',
+		data: {
+			labels: cpuFechas,
+			datasets: [{
+				label: cpuTitle,
+				data: cpuData,
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true,
+						suggestedMax: cpuMaxvalue,
+						stepsize: 1
+					}
+				}]
+			}
+		}
+	});
+
+
+	var memoriaData = {{ valoresMemoria }};
+	var memoriaFechas = {{ fechasMemoria|safe }};
+	var memoriaMaxvalue = 100;
+	var memoriaTitle = 'Uso de Memoria';
+
+	var ctx = document.getElementById('memoriaChart').getContext('2d');
+	var memoriaChart = new Chart(ctx, {
+		type: 'line',
+		data: {
+			labels: memoriaFechas,
+			datasets: [{
+				label: memoriaTitle,
+				data: memoriaData,
+				backgroundColor: [
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+				],
+				borderColor: [
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true,
+						suggestedMax: memoriaMaxvalue,
+						stepsize: 1
+					}
+				}]
+			}
+		}
+	});
+
+
+    var ifInChartData =  {
+			labels: {{ fechasInterfazIn|safe }},
+			datasets: [
+			{% for key, valor in valoresInterfazIn.items %}
+			{
+				label: '{{ key }}',
+				data: {{ valor }},
+				backgroundColor: 'rgba(54, 235, 20, 0.2)',
+				borderColor: 'rgba(54, 235, 20, 1)',
+				borderWidth: 1
+			},
+
+			{% endfor %}
+			]
+		}
+
+	var ctx = document.getElementById('intinChart').getContext('2d');
+	var intinChart = new Chart(ctx, {
+		type: 'bar',
+		data: ifInChartData,
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true,
+						stepsize: 1
+					}
+				}]
+			}
+		}
+	});
+
+
+
+	var ifOutChartData =  {
+			labels: {{ fechasInterfazOut|safe }},
+			datasets: [
+			{% for key, valor in valoresInterfazOut.items %}
+			{
+				label: '{{ key }}',
+				data: {{ valor }},
+				backgroundColor: 'rgba(140, 90, 238, 0.2)',
+				borderColor: 'rgba(140, 90, 238, 1)',
+				borderWidth: 1
+			},
+
+			{% endfor %}
+			]
+		}
+
+	var ctx = document.getElementById('intoutChart').getContext('2d');
+	var intoutChart = new Chart(ctx, {
+		type: 'bar',
+		data: ifOutChartData,
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true,
+						stepsize: 1
+					}
+				}]
+			}
+		}
+	});
+
+
+{% endblock %}
+</script>

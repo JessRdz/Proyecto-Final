@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Reportes</h1>
+
+    {% if reporte_list %}
+    <ul>
+
+      {% for reporte in reporte_list %}
+      <li>
+        {{ reporte.ip }} : {{reporte.fecha}} : {{reporte.descripcion}}
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>No hay reportes.</p>
+    {% endif %}       
+{% endblock %}

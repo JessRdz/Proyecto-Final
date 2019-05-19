@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Configuration Management</h1>
+
+	<form action='obtenerInventario' method='GET'>
+		<button type='submit'> Obtener inventario</button>
+	</form>
+	<h3>Inventario:</h3> {{ dispositivos|safe }}
+
+{% endblock %}

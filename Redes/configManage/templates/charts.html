@@ -1,0 +1,84 @@
+{% extends "base_generic.html" %}
+{% block title %}<title>Accounting Management</title>{% endblock %}
+<script>
+{% block jquery %}
+
+	var defaultData = {{ bytes }};
+	var labels = {{ fechas|safe }};
+
+	var maxvalue = 5;
+
+	{% if ip and ip_destino %}
+	var title = 'Consumo de ancho de banda de {{ ip }} hacia {{ ip_destino }} en Kb/s';
+	{% elif ip %}
+	var title = 'Consumo de ancho de banda de {{ ip }} en Kb/s';
+	{% else %}
+	var title = 'Consumo de ancho de banda hacia {{ ip_destino }} en Kb/s';
+	{% endif %}
+
+	var ctx = document.getElementById('myChart').getContext('2d');
+	var myChart = new Chart(ctx, {
+		type: 'line',
+		data: {
+			labels: labels,
+			datasets: [{
+				label: title,
+				data: defaultData,
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true,
+						suggestedMax: maxvalue,
+						stepsize: 0.1
+					}
+				}]
+			}
+		}
+	});
+
+{% endblock %}
+</script>
+
+{% block content %}
+<h1>Accounting Management</h1>
+<div class="row">
+    <form action='actualizarFlows' method='GET'>
+		<button type='submit'> Actualizar</button>
+	</form>
+	<h4>Flows</h4>
+	<form action='mostrarFlows' method='POST'>{% csrf_token %}
+		<label for="ip_source"> Mostrar consumo proveniente de: </label><br>
+		<input id="ip_source" type="text" name="ip_source" placeholder="IP origen">
+		<label for="ip_destino"> hacia </label>
+		<input id="ip_destino" type="text" name="ip_destino" placeholder="IP destino">
+		<label for="fecha_ini"> del </label>
+		<input id="fecha_ini" type="datetime-local" name="fecha_ini" placeholder="Fecha inicio">
+		<label for="fecha_fin"> al </label>
+		<input id="fecha_fin" type="datetime-local" name="fecha_fin" placeholder="Fecha fin">
+		<input type="submit" value="Mostrar">
+	</form>
+	{% if ip or ip_destino%}
+	<canvas id="myChart" width="400" height="100"></canvas>
+	{% endif %}
+</div>
+{% endblock %}
