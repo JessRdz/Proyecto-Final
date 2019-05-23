@@ -100,6 +100,9 @@ def mostrarPerformance(request):
                                                  'valoresCPU': cpu,
                                                  'valoresMemoria': memoria,
                                                  'valoresInterfazIn': interfazin,
-                                                 'valoresInterfazOut': interfazout
+                                                 'valoresInterfazOut': interfazout,
+                                                 'ip': ip,
+                                                 'fecha_ini': fechaini.strftime("%d/%m/%Y %H:%M"),
+                                                 'fecha_fin': fechafin.strftime("%d/%m/%Y %H:%M")
                                                  })
 

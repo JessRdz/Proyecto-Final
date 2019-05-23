@@ -5,33 +5,35 @@
   {% block title %}<title>Configuration Management</title>{% endblock %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   
   <!-- Add additional CSS in static file -->
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
 </head>
 
 <body>
-
-  <div class="container-fluid">
-
-    <div class="row">
-      <div class="col-sm-2">
-        <h3>Menú</h3>
       {% block sidebar %}
-      <ul class="sidebar-nav">
-          <li><a href="http://127.0.0.1:8000/configManage/">Inventario</a></li>
-          <li><a href="http://127.0.0.1:8000/accountManage/">Consumo</a></li>
-          <li><a href="http://127.0.0.1:8000/performanceManage/estadisticas/">Estadísticas</a></li>
-          <li><a href="http://127.0.0.1:8000/configMange/reportes/">Reportes</a></li>
-      </ul>
-      {% endblock %}
+      <div class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">FCAPS</a>
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="http://127.0.0.1:8000/configManage/">Configuration</a>
+            <a class="nav-item nav-link" href="http://127.0.0.1:8000/accountManage/">Accounting</a>
+            <a class="nav-item nav-link" href="http://127.0.0.1:8000/performanceManage/estadisticas/">Performance</a>
+            <a class="nav-item nav-link" href="http://127.0.0.1:8000/configManage/reportes/">Reportes</a>
+          </div>
       </div>
-      <div class="col-sm-10 ">
+      {% endblock %} 
+      
+
+      <div class="col-sm-12 "><br><br>
+      <div class="p-3 mb-2 bg-primary text-white"><h3>{% block subtitle %}{% endblock %}</h3></div>
       {% block content %}{% endblock %}
       </div>
 
@@ -48,8 +50,8 @@
             {% block jquery %}{% endblock %}
           })
       </script>
-    </div>
+    
 
-  </div>
+  
 </body>
 </html>

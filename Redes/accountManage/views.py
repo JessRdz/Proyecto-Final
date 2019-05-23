@@ -56,7 +56,7 @@ def mostrarFlows(request):
         for flow in flows:
             if flow.fecha >= fecha_ini and flow.fecha <= fecha_fin:
                 segundos = flow.duration // 1000 + 1
-                band = (float(flow.size)) / segundos
+                band = float(flow.size) / 1000
                 bytes.append(band)
                 fechas.append(flow.fecha.strftime("(%d/%m/%Y) %H:%M"))
         return render(request, 'charts.html',
@@ -89,4 +89,6 @@ def mostrarFlows(request):
                       context={'bytes': bytes,
                                'total_bytes': bytes_total,
                                'tiempos': tiempos,
-                               'total_tiempo': tiempo_total})
+                               'total_tiempo': tiempo_total,
+                               'fecha_ini': fecha_ini.strftime("%d/%m/%Y %H:%M"),
+                               'fecha_fin': fecha_fin.strftime("%d/%m/%Y %H:%M")})

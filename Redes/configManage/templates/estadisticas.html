@@ -1,8 +1,9 @@
 {% extends "base_generic.html" %}
 {% block title %}<title>Performance Management</title>{% endblock %}
 
+{% block subtitle %}Performance Management{% endblock %}
+
 {% block content %}
-<h1>Performance Management</h1>
 <div class="row">
 	<h4>Rendimiento del dispositivo</h4>
 	<form action='mostrarPerformance' method='POST'>{% csrf_token %}
@@ -14,22 +15,38 @@
 		<input id="fecha_fin" type="datetime-local" name="fecha_fin" placeholder="Fecha fin">
 		<input type="submit" value="Mostrar">
 	</form>
+</div>
+
+
 	{% if valoresCPU%}
-	<canvas id="cpuChart" width="400" height="100"></canvas> <br><br>
+	<br>
+	<div align="center"><h3>Estadísticas del dispositivo {{ ip }} de {{ fecha_ini }} a {{ fecha_fin }}</h3></div>
+	<br>
+	<div class='col-sm-6' align='center'>
+		<canvas id="cpuChart" width="150" height="100"></canvas> <br><br>
+	</div>
 	{% endif %}
 
     {% if valoresMemoria%}
-	<canvas id="memoriaChart" width="400" height="100"></canvas> <br><br>
+    <div class='col-sm-6' align='center'>
+		<canvas id="memoriaChart" width="150" height="100"></canvas> <br><br>
+	</div>
 	{% endif %}
 
     {% if valoresInterfazIn%}
-	<canvas id="intinChart" width="400" height="100"></canvas> <br><br>
+    <div align="center"><h4>Estadísticas de las interfaces</h4></div>
+    <div class='col-sm-6' align='center'>
+    	<h5>Bytes entrantes</h5>
+		<canvas id="intinChart" width="150" height="100"></canvas> <br><br>
+	</div>
 	{% endif %}
 
      {% if valoresInterfazOut%}
-	<canvas id="intoutChart" width="400" height="100"></canvas> <br><br>
+    <div class='col-sm-6' align='center'>
+    	<h5>Bytes salientes</h5>
+		<canvas id="intoutChart" width="150" height="100"></canvas> <br><br>
+	</div>
 	{% endif %}
-</div>
 {% endblock %}
 
 <script>
@@ -125,8 +142,23 @@
 			}
 		}
 	});
+	var border = ['rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(140, 90, 238, 1)',
+					'rgba(54, 235, 20, 1)'];
 
+	var back = ['rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)',
+					'rgba(140, 90, 238, 0.2)',
+					'rgba(54, 235, 20, 0.2)'];
 
+    var color = -1;
     var ifInChartData =  {
 			labels: {{ fechasInterfazIn|safe }},
 			datasets: [
@@ -134,8 +166,8 @@
 			{
 				label: '{{ key }}',
 				data: {{ valor }},
-				backgroundColor: 'rgba(54, 235, 20, 0.2)',
-				borderColor: 'rgba(54, 235, 20, 1)',
+				backgroundColor: back[color = color + 1],
+				borderColor: border[color],
 				borderWidth: 1
 			},
 
@@ -160,7 +192,7 @@
 	});
 
 
-
+	color = -1;
 	var ifOutChartData =  {
 			labels: {{ fechasInterfazOut|safe }},
 			datasets: [
@@ -168,8 +200,8 @@
 			{
 				label: '{{ key }}',
 				data: {{ valor }},
-				backgroundColor: 'rgba(140, 90, 238, 0.2)',
-				borderColor: 'rgba(140, 90, 238, 1)',
+				backgroundColor: back[color = color + 1],
+				borderColor: border[color],
 				borderWidth: 1
 			},
 
