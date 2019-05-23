@@ -53,17 +53,25 @@ def mostrarFlows(request):
     if ip_origen != '' or ip_destino != '':
         bytes = []
         fechas = []
+        bytes_total = 0
+        segundos = 0
         for flow in flows:
             if flow.fecha >= fecha_ini and flow.fecha <= fecha_fin:
-                segundos = flow.duration // 1000 + 1
+                segundos = segundos + flow.duration // 1000
                 band = float(flow.size) / 1000
                 bytes.append(band)
+                bytes_total = bytes_total + band
                 fechas.append(flow.fecha.strftime("(%d/%m/%Y) %H:%M"))
         return render(request, 'charts.html',
                       context={'bytes': bytes,
+                               'bytes_total': bytes_total,
+                               'segundos': segundos % 60,
+                               'minutos': int(segundos / 60),
                                'fechas': fechas,
                                'ip': ip_origen,
-                               'ip_destino': ip_destino})
+                               'ip_destino': ip_destino,
+                               'fecha_ini': fecha_ini.strftime("%d/%m/%Y %H:%M"),
+                               'fecha_fin': fecha_fin.strftime("%d/%m/%Y %H:%M")})
 
     else:
         tiempos = {}

@@ -78,11 +78,11 @@
 		var maxvalue = 5;
 
 		{% if ip and ip_destino %}
-		var title = 'Consumo de ancho de banda de {{ ip }} hacia {{ ip_destino }} en Kb/s';
+		var title = 'Consumo de ancho de banda de {{ ip }} hacia {{ ip_destino }} en Kb';
 		{% elif ip %}
-		var title = 'Consumo de ancho de banda de {{ ip }} en Kb/s';
+		var title = 'Consumo de ancho de banda de {{ ip }} en Kb';
 		{% else %}
-		var title = 'Consumo de ancho de banda hacia {{ ip_destino }} en Kb/s';
+		var title = 'Consumo de ancho de banda hacia {{ ip_destino }} en Kb';
 		{% endif %}
 
 		
@@ -153,22 +153,24 @@
 </form>
 	
 
-{% if ip or ip_destino%}
-	<canvas id="myChart" width="400" height="100"></canvas>
-	{% endif %}
+{% if ip %}
+<div align='center'><h3>Consumo del dispositivo {{ ip }} de {{ fecha_ini }} a {{ fecha_fin }}</h3></div><br>
+<canvas id="myChart" width="400" height="100"></canvas>
+Consumo total: {{ bytes_total }} Kb en {{ minutos }}min {{ segundos }} s.
+{% endif %}
 
-	{% if tiempos %}
-	<br>
-	<div align='center'><h3>Consumo general registrado de {{ fecha_ini }} a {{ fecha_fin }}</h3></div><br>
-	<div class="row">
-		<div class='col-sm-6' align='center'>
-			<h4>Bytes consumidos(Kb): {{ total_bytes }}</h4>
-			<canvas id="bytesChart" width="150" height="100"></canvas><br>
-		</div>
-		<div class='col-sm-6' align='center'>
-			<h4>Tiempo consumido(min): {{ total_tiempo }}</h4>
-			<canvas id="tiempoChart" width="150" height="100"></canvas>
-		</div>
+{% if tiempos %}
+<br>
+<div align='center'><h3>Consumo general registrado de {{ fecha_ini }} a {{ fecha_fin }}</h3></div><br>
+<div class="row">
+	<div class='col-sm-6' align='center'>
+		<h4>Bytes consumidos(Kb): {{ total_bytes }}</h4>
+		<canvas id="bytesChart" width="150" height="100"></canvas><br>
 	</div>
-	{% endif %}
+	<div class='col-sm-6' align='center'>
+		<h4>Tiempo consumido(min): {{ total_tiempo }}</h4>
+		<canvas id="tiempoChart" width="150" height="100"></canvas>
+	</div>
+</div>
+{% endif %}
 {% endblock %}

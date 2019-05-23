@@ -16,7 +16,15 @@
 		<input type="submit" value="Mostrar">
 	</form>
 </div>
-
+<form action='mostrarLinks' method='GET'>
+	<button type='submit'>10 Links</button>
+</form>
+	{% if interfaces %}
+	10 interfaces más cargadas: <br>
+	{% for key, valor in interfaces %}
+	{{ key }} : {{ valor }} bytes <br>
+	{% endfor %}
+	{% endif %}
 
 	{% if valoresCPU%}
 	<br>

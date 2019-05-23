@@ -8,6 +8,7 @@ from datetime import datetime
 import pytz
 import requests
 import time
+import operator
 
 # Create your views here.
 
@@ -106,3 +107,16 @@ def mostrarPerformance(request):
                                                  'fecha_fin': fechafin.strftime("%d/%m/%Y %H:%M")
                                                  })
 
+def mostrar10Links(request):
+    estadisticas = Estadistica.objects.filter(tipo='Interface-in')
+    interfaces = {}
+    for estadistica in estadisticas:
+        interfaz, x = str(estadistica.valor).split(':')
+        interfaz = estadistica.ip + ':' + interfaz
+        if interfaces.get(interfaz) is None:
+            interfaces[interfaz] = 0
+        interfaces[interfaz] = interfaces[interfaz] + int(x)
+
+    interfaces = sorted(interfaces.items())[::-1]
+
+    return render(request, 'estadisticas.html', {'interfaces': interfaces})
