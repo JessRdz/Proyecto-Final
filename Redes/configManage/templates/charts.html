@@ -80,5 +80,17 @@
 	{% if ip or ip_destino%}
 	<canvas id="myChart" width="400" height="100"></canvas>
 	{% endif %}
+
+	{% if tiempos %}
+	{{ total_tiempo }} min<br>
+	{% for key, valor in tiempos.items %}
+		{{ key }} : {{ valor }} min<br>
+	{% endfor %}
+	<br>
+	{{ total_bytes }} Kb<br>
+	{% for key, valor in bytes.items %}
+		{{ key }} : {{ valor }} Kb<br>
+	{% endfor %}
+	{% endif %}
 </div>
 {% endblock %}
