@@ -153,8 +153,15 @@
 </form>
 	
 
-{% if ip %}
-<div align='center'><h3>Consumo del dispositivo {{ ip }} de {{ fecha_ini }} a {{ fecha_fin }}</h3></div><br>
+{% if ip or ip_destino %}
+	{% if ip and ip_destino %}
+	<div align='center'><h3>Consumo de {{ ip }} a {{ ip_destino }} de {{ fecha_ini }} a {{ fecha_fin }}</h3></div><br>
+	{% elif ip %}
+	<div align='center'><h3>Consumo del dispositivo {{ ip }} de {{ fecha_ini }} a {{ fecha_fin }}</h3></div><br>
+	{% else %}
+	<div align='center'><h3>Consumo del dispositivo {{ ip_destino }} de {{ fecha_ini }} a {{ fecha_fin }}</h3></div><br>
+	{% endif %}
+
 <canvas id="myChart" width="400" height="100"></canvas>
 Consumo total: {{ bytes_total }} Kb en {{ minutos }}min {{ segundos }} s.
 {% endif %}

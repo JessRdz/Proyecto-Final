@@ -108,13 +108,14 @@ class Connection:
     def service(self):
         # Resolve ports to their services, if known
         service = "unknown"
+        print(str(self.dest_port))
         try:
             # Try service of sending peer first
-            service = socket.getservbyport(self.src_port)
+            service = socket.getservbyport(self.src_port, 'tcp')
         except OSError:
             # Resolving the sport did not work, trying dport
             try:
-                service = socket.getservbyport(self.dest_port)
+                service = socket.getservbyport(self.dest_port, 'tcp')
             except OSError:
                 pass
         return service

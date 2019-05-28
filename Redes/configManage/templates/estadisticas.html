@@ -60,6 +60,7 @@
 <script>
 {% block jquery %}
 
+	{% if valoresCPU%}
 	var cpuData = {{ valoresCPU }};
 	var cpuFechas = {{ fechasCPU|safe }};
 	var cpuMaxvalue = 100;
@@ -104,8 +105,9 @@
 			}
 		}
 	});
+	{% endif %}
 
-
+	{% if valoresMemoria %}
 	var memoriaData = {{ valoresMemoria }};
 	var memoriaFechas = {{ fechasMemoria|safe }};
 	var memoriaMaxvalue = 100;
@@ -150,6 +152,7 @@
 			}
 		}
 	});
+	{% endif %}
 	var border = ['rgba(54, 162, 235, 1)',
 					'rgba(255, 206, 86, 1)',
 					'rgba(75, 192, 192, 1)',
@@ -166,6 +169,7 @@
 					'rgba(140, 90, 238, 0.2)',
 					'rgba(54, 235, 20, 0.2)'];
 
+	{% if valoresInterfazIn %}
     var color = -1;
     var ifInChartData =  {
 			labels: {{ fechasInterfazIn|safe }},
@@ -198,8 +202,9 @@
 			}
 		}
 	});
+	{% endif %}
 
-
+	{% if valoresInterfazOut %}
 	color = -1;
 	var ifOutChartData =  {
 			labels: {{ fechasInterfazOut|safe }},
@@ -232,7 +237,7 @@
 			}
 		}
 	});
-
+	{% endif %}
 
 {% endblock %}
 </script>

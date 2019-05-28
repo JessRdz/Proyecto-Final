@@ -71,7 +71,7 @@ class SoftflowUDPHandler(socketserver.BaseRequestHandler):
             logging.error("Error with exception handling while disecting export, export is None")
             return
 
-        logging.debug("Processed ExportPacket with {} flows.".format(export.header.count))
+        print("Processed ExportPacket with {} flows.".format(export.header.count))
         logging.debug("Size of buffer: {}".format(len(self.buffered)))
 
 

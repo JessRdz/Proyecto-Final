@@ -9,6 +9,8 @@ import pytz
 import requests
 import time
 import operator
+from datetime import datetime
+import pytz
 
 # Create your views here.
 
@@ -19,7 +21,10 @@ class HomeView(View):
 
 
 def nueva_estadistica(request, fecha, ip, tipo, valor):
-    e = Estadistica(fecha=fecha, ip=ip, tipo=tipo, valor=valor)
+    fe = datetime.strptime(fecha, "%Y-%m-%dT%H:%M")
+    utc = pytz.UTC
+    fe = utc.localize(fe)
+    e = Estadistica(fecha=fe, ip=ip, tipo=tipo, valor=valor)
     e.save()
     if tipo == 'CPU' and int(valor) >= 80:
         requests.get("http://127.0.0.1:8000/configManage/reportes/" + ip +
@@ -117,6 +122,10 @@ def mostrar10Links(request):
             interfaces[interfaz] = 0
         interfaces[interfaz] = interfaces[interfaz] + int(x)
 
-    interfaces = sorted(interfaces.items())[::-1]
+    inter = []
+    for i in interfaces.items():
+        inter.append(i)
+    inter.sort(key=lambda x: x[1])
+    inter.reverse()
 
-    return render(request, 'estadisticas.html', {'interfaces': interfaces})
+    return render(request, 'estadisticas.html', {'interfaces': inter[0:10]})
