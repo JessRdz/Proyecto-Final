@@ -13,6 +13,8 @@ from datetime import datetime
 
 # Create your views here.
 
+servicios = ['http']
+
 class HomeView(View):
     def get(self, request, *args, **kargs):
         return render(request, 'charts.html', {})
@@ -33,6 +35,9 @@ def mostrarFlows(request):
     ip_destino = request.POST['ip_destino']
     fecha_ini = datetime.strptime(request.POST['fecha_ini'], "%Y-%m-%dT%H:%M")
     fecha_fin = datetime.strptime(request.POST['fecha_fin'], "%Y-%m-%dT%H:%M")
+    todo = None
+    if request.POST.get('servicios') is not None:
+        todo = request.POST['servicios']
 
     # Configurar zona horaria a las fechas del formulario
     utc = pytz.UTC
@@ -48,7 +53,7 @@ def mostrarFlows(request):
         flows = Flow.objects.filter(ip_origen=ip_origen)
     else:
         flows = Flow.objects.all()
-
+    print(todo)
     # Filtrar flujos por fecha y hora
     if ip_origen != '' or ip_destino != '':
         bytes = []
@@ -57,11 +62,23 @@ def mostrarFlows(request):
         segundos = 0
         for flow in flows:
             if flow.fecha >= fecha_ini and flow.fecha <= fecha_fin:
-                segundos = segundos + flow.duration // 1000
-                band = float(flow.size) / 1000
-                bytes.append(band)
-                bytes_total = bytes_total + band
-                fechas.append(flow.fecha.strftime("(%d/%m/%Y) %H:%M"))
+                if todo == '1':
+                    print('ha')
+                    segundos = segundos + flow.duration // 1000
+                    band = float(flow.size) / 1000
+                    bytes.append(band)
+                    bytes_total = bytes_total + band
+                    fechas.append(flow.fecha.strftime("(%d/%m/%Y) %H:%M"))
+                else:
+                    print('he')
+                    if servicios.__contains__(flow.servicio):
+                        segundos = segundos + flow.duration // 1000
+                        band = float(flow.size) / 1000
+                        bytes.append(band)
+                        bytes_total = bytes_total + band
+                        fechas.append(flow.fecha.strftime("(%d/%m/%Y) %H:%M"))
+
+
         return render(request, 'charts.html',
                       context={'bytes': bytes,
                                'bytes_total': bytes_total,
@@ -80,18 +97,33 @@ def mostrarFlows(request):
         bytes_total = 0
         for flow in flows:
             if flow.fecha >= fecha_ini and flow.fecha <= fecha_fin:
+                if todo == '1':
+                    tiempo_total = tiempo_total + float(flow.duration) / 60000
+                    if tiempos.get(flow.ip_origen) is None:
+                        tiempos[flow.ip_origen] = float(flow.duration) / 60000
+                    else:
+                        tiempos[flow.ip_origen] = tiempos[flow.ip_origen] + float(flow.duration) / 60000
 
-                tiempo_total = tiempo_total + float(flow.duration) / 60000
-                if tiempos.get(flow.ip_origen) is None:
-                    tiempos[flow.ip_origen] = float(flow.duration) / 60000
+                    bytes_total = bytes_total + float(flow.size) / 1000
+                    if bytes.get(flow.ip_origen) is None:
+                        bytes[flow.ip_origen] = float(flow.size) / 1000
+                    else:
+                        bytes[flow.ip_origen] = bytes[flow.ip_origen] + float(flow.size) / 1000
                 else:
-                    tiempos[flow.ip_origen] = tiempos[flow.ip_origen] + float(flow.duration) / 60000
+                    if servicios.__contains__(flow.servicio):
+                        tiempo_total = tiempo_total + float(flow.duration) / 60000
+                        if tiempos.get(flow.ip_origen) is None:
+                            tiempos[flow.ip_origen] = float(flow.duration) / 60000
+                        else:
+                            tiempos[flow.ip_origen] = tiempos[flow.ip_origen] + float(flow.duration) / 60000
 
-                bytes_total = bytes_total + float(flow.size) / 1000
-                if bytes.get(flow.ip_origen) is None:
-                    bytes[flow.ip_origen] = float(flow.size) / 1000
-                else:
-                    bytes[flow.ip_origen] = bytes[flow.ip_origen] + float(flow.size) / 1000
+                        bytes_total = bytes_total + float(flow.size) / 1000
+                        if bytes.get(flow.ip_origen) is None:
+                            bytes[flow.ip_origen] = float(flow.size) / 1000
+                        else:
+                            bytes[flow.ip_origen] = bytes[flow.ip_origen] + float(flow.size) / 1000
+
+
 
         return render(request, 'charts.html',
                       context={'bytes': bytes,

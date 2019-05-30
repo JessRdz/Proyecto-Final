@@ -108,14 +108,14 @@ class Connection:
     def service(self):
         # Resolve ports to their services, if known
         service = "unknown"
-        print(str(self.dest_port))
+        print(str(self.src_port) + " a " + str(self.dest_port))
         try:
             # Try service of sending peer first
-            service = socket.getservbyport(self.src_port, 'tcp')
+            service = socket.getservbyport(self.src_port)
         except OSError:
             # Resolving the sport did not work, trying dport
             try:
-                service = socket.getservbyport(self.dest_port, 'tcp')
+                service = socket.getservbyport(self.dest_port)
             except OSError:
                 pass
         return service
@@ -142,6 +142,8 @@ def cargar_json(filename):
         json.dump({}, fh)
     return resultado
 
+
+# print(socket.getservbyport(8080))
 """
 
 # Handle CLI args and load the data dump
