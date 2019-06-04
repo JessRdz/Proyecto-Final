@@ -4,8 +4,7 @@ from django.shortcuts import render
 from django.views.generic import View
 from .models import Flow
 
-from rest_framework.views import APIView
-from rest_framework.response import Response
+
 
 import AnalyzeJson as json
 import pytz

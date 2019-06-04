@@ -78,4 +78,28 @@ def mostrar(dispositivos):
             estado = "deconectado"
         print(dispositivo + " " + estado)
 
+def cadena(dispositivos):
+    cadena = ""
+    for dispositivo, nivel in dispositivos:
+        if nivel == 0:
+            estado = "conectado"
+        if nivel >= 3 and nivel < 5:
+            estado = "posiblemente desconectado"
+        if nivel >= 5:
+            estado = "deconectado"
+        cadena = cadena + str(dispositivo) + " " + str(estado) + "\n"
+
+def mostrarDispositivosWeb(dispositivos):
+
+    for dispositivo, nivel in dispositivos:
+        if nivel == 0:
+            estado = "conectado"
+        if nivel >= 3 and nivel < 5:
+            estado = "posiblemente desconectado"
+        if nivel >= 5:
+            estado = "deconectado"
+
+    resultado = dispositivo + ":<br><strong>" + estado + "<br>"
+
+    return resultado
 

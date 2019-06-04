@@ -25,7 +25,7 @@ SECRET_KEY = '^2leb)3op(!c_zb36^(n17pcxoy10(ib8!j6z)of#jyztzvjy5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['50.0.0.2', '10.10.10.83']
+ALLOWED_HOSTS = ['50.0.0.2', '10.10.10.83', '127.0.0.1']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'configManage.apps.ConfigmanageConfig',
     'accountManage.apps.AccountmanageConfig',
     'performanceManage.apps.PerformancemanageConfig',
+    'FaultManagement.apps.FaultemanagementConfig',
 ]
 
 MIDDLEWARE = [
