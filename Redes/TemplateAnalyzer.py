@@ -90,6 +90,28 @@ class Router:
                     key, valor = valor.split(":")
                     self.snmp[key] = valor
 
+    def from_conf_file(self, cadena):
+        # Obtener hostname
+        hostpat = re.compile('hostname (\w+)')
+        match = hostpat.search(cadena)
+        x, self.hostname = match.group().split(" ")
+
+        # Obtener interfaces
+        interpat = re.compile('interface ([\w/]+)\n ip address ([\d.]+) ([\d.]+)')
+        match = interpat.findall(cadena)
+        for nombre, ip, mask in match:
+            self.interfaces.append((nombre, ip, mask))
+
+        #Obtener eigrp
+        eigrpat = re.compile('router eigrp 100\n( redistribute [\w ]+\s)*( network [\d.]+ [\d.]+\s)* ')
+        match = eigrpat.search(cadena)
+        for l in match.group().split('\n')[1:-1]:
+            x, tipo, v1, v2 = l.split(' ')
+            if tipo == 'redistribute':
+                self.eigrp[tipo].append(str(v1) + str(v2))
+            else:
+                self.eigrp[str(tipo) + 's'].append((v1, v2))
+
 
 def obtener_routers_template():
     templates = open("template")
@@ -102,4 +124,13 @@ def obtener_routers_template():
         resultado.append(r)
     return resultado
 
-print(obtener_routers_template()[0])
+def obtener_router_archivo(archivo):
+    conf = open('archivos/' + archivo)
+    contenido = conf.read()
+    r = Router()
+    r.from_conf_file(contenido)
+    return r
+
+
+print(obtener_routers_template()[1])
+print(obtener_router_archivo('config'))
