@@ -8,7 +8,7 @@
 	<h4>Rendimiento del dispositivo</h4>
 	<form action='mostrarPerformance' method='POST'>{% csrf_token %}
 		<label for="ip_source"> Mostrar rendimiento del dispositivo: </label><br>
-		<input id="ip_source" type="text" name="ip_source" placeholder="IP origen">
+		<input id="ip_source" type="text" name="ip_source" placeholder="Nombre del dispositivo">
 		<label for="fecha_ini"> del </label>
 		<input id="fecha_ini" type="datetime-local" name="fecha_ini" placeholder="Fecha inicio">
 		<label for="fecha_fin"> al </label>
@@ -20,9 +20,9 @@
 	<button type='submit'>10 Links</button>
 </form>
 	{% if interfaces %}
-	10 interfaces más cargadas: <br>
+<h3>10 interfaces más cargadas: </h3><br>
 	{% for key, valor in interfaces %}
-	{{ key }} : {{ valor }} bytes <br>
+<strong>{{ key }}</strong>: {{ valor }} bytes <br>
 	{% endfor %}
 	{% endif %}
 
