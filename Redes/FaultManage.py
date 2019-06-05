@@ -8,5 +8,18 @@ def nuevo_reporte(request, ip, descripcion):
                  "/" + descripcion + "/" + time.strftime("%c"))
 
 
-f = open("dispositivos")
-f.write()
+f = open("dispositivos", 'w')
+dispositivos = pull.conocer_red()
+conexiones = pull.cadena(dispositivos)
+f.write(conexiones)
+f.close()
+
+while True:
+    dispositivos = pull.ping_dispositivos(dispositivos)
+    conexiones = pull.cadena(dispositivos)
+    pull.mostrar(dispositivos)
+    f = open("dispositivos", 'w')
+    f.write(conexiones)
+    f.close()
+
+    time.sleep(2)

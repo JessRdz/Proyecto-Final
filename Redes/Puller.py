@@ -46,26 +46,28 @@ def ping_dispositivos(dispositivos):
         if subprocess.call(command, stdout=False) == 0:
             if nivel > 4:
                 mensaje = "Se reanudo la comunicación con el dispositivo " + dispositivo
-                send_notification("sonia_gtz05@hotmail.com", "Dispositivo reconectado", mensaje)
+                #send_notification("sonia_gtz05@hotmail.com", "Dispositivo reconectado", mensaje)
                 notificar(mensaje)
             nivel = 0
         else:
             nivel = nivel + 1
             if nivel == 3:
                 mensaje = "Problemas de comunicacion con " + dispositivo
-                send_notification("sonia_gtz05@hotmail.com", "Posible problema de conexion", mensaje)
+                #send_notification("sonia_gtz05@hotmail.com", "Posible problema de conexion", mensaje)
             if nivel == 5:
                 mensaje = "Se interrumpió la comunicación con el dispositivo " + dispositivo
-                send_notification("sonia_gtz05@hotmail.com", "Dispositivo desconectado", mensaje)
+                #send_notification("sonia_gtz05@hotmail.com", "Dispositivo desconectado", mensaje)
                 notificar(mensaje)
 
         dispositivos_temp.append([dispositivo, nivel])
 
     return dispositivos_temp
 
+
 def notificar(mensaje):
     command = ['notify-send', mensaje]
     subprocess.call(command, stdout=False)
+
 
 def mostrar(dispositivos):
     print("********************************************\n")
@@ -75,8 +77,9 @@ def mostrar(dispositivos):
         if nivel >= 3 and nivel < 5:
             estado = "posiblemente desconectado"
         if nivel >= 5:
-            estado = "deconectado"
+            estado = "desconectado"
         print(dispositivo + " " + estado)
+
 
 def cadena(dispositivos):
     cadena = ""
@@ -86,20 +89,24 @@ def cadena(dispositivos):
         if nivel >= 3 and nivel < 5:
             estado = "posiblemente desconectado"
         if nivel >= 5:
-            estado = "deconectado"
+            estado = "desconectado"
         cadena = cadena + str(dispositivo) + " " + str(estado) + "\n"
+    return cadena
+
+
+def from_cadena(cadena):
+    lineas = cadena.split('\n')
+    dispositivos = []
+    for l in lineas[:-1]:
+        ip, estado = l.split(' ')
+        dispositivos.append([ip, estado])
+    return dispositivos
+
 
 def mostrarDispositivosWeb(dispositivos):
-
-    for dispositivo, nivel in dispositivos:
-        if nivel == 0:
-            estado = "conectado"
-        if nivel >= 3 and nivel < 5:
-            estado = "posiblemente desconectado"
-        if nivel >= 5:
-            estado = "deconectado"
-
-    resultado = dispositivo + ":<br><strong>" + estado + "<br>"
+    resultado = ""
+    for dispositivo, estado in dispositivos:
+        resultado = resultado + dispositivo + ": <strong>" + estado + "</strong><br>"
 
     return resultado
 

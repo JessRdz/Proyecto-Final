@@ -27,6 +27,7 @@ urlpatterns += [
     path('configManage/', include('configManage.urls')),
     path('accountManage/', include('accountManage.urls')),
     path('performanceManage/', include('performanceManage.urls')),
+    path('faultManage/', include('FaultManagement.urls')),
 ]
 
 #Add URL maps to redirect the base URL to our application

@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'configManage.apps.ConfigmanageConfig',
     'accountManage.apps.AccountmanageConfig',
     'performanceManage.apps.PerformancemanageConfig',
-    'FaultManagement.apps.FaultemanagementConfig',
+    'FaultManagement.apps.FaultmanagementConfig',
 ]
 
 MIDDLEWARE = [

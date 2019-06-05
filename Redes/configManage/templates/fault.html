@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Configuration Management</h1>
+
+	<form action='mostrarDispositivos' method='GET'>
+		<button type='submit'> Mostrar dispositivos </button>
+	</form>
+<h3>Dispositivos:</h3> <div id="texto"> {{ dispositivos|safe }} </div>
+
+{% endblock %}
+
+<script>
+{% block jquery %}
+{% if dispositivos %}
+    setInterval(function() {
+        document.location.reload(true)
+    }, 3000)
+{% endif %}
+{% endblock %}
+</script>

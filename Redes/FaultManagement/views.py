@@ -12,15 +12,18 @@ def index(request):
 	# Renderiza la plantilla HTML index.html con los datos en la variable contexto
     return render(
         request,
-        'index.html',
+        'fault.html',
         # context={'num_books':num_books,'num_instances':num_instances,'num_instances_available':num_instances_available,'num_authors':num_authors},
     )
 
 
 def ver_dispositivos(request):
+    f = open("dispositivos")
+    cadena = f.read()
+    dispositivos = pull.from_cadena(cadena)
     return render(
         request,
-        'index.html',
-        context={'dispositivo': pull.mostrarDispositivosWeb()},
+        'fault.html',
+        context={'dispositivos': pull.mostrarDispositivosWeb(dispositivos)},
     )
 
