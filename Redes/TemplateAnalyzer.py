@@ -103,14 +103,36 @@ class Router:
             self.interfaces.append((nombre, ip, mask))
 
         #Obtener eigrp
-        eigrpat = re.compile('router eigrp 100\n( redistribute [\w ]+\s)*( network [\d.]+ [\d.]+\s)* ')
+        eigrpat = re.compile('router eigrp 100\n( redistribute [\w ]+\n)*( network [\d.]+ [\d.]+\n)* ')
         match = eigrpat.search(cadena)
         for l in match.group().split('\n')[1:-1]:
-            x, tipo, v1, v2 = l.split(' ')
-            if tipo == 'redistribute':
-                self.eigrp[tipo].append(str(v1) + str(v2))
+            v = l.split(' ')
+            if v[1] == 'redistribute':
+                self.eigrp[v[1]].append(str(v[2]) + str(v[3]))
             else:
-                self.eigrp[str(tipo) + 's'].append((v1, v2))
+                self.eigrp[str(v[1]) + 's'].append((v[2], v[3]))
+
+        # Obtener ospf
+        ospfpat = re.compile('router ospf 1\n[ log\-adjacency\-changes\n]*'
+                             '( redistribute [\w ]+\n)*( network [\d.]+ [\d.]+ area \d\n)*!')
+        match = ospfpat.search(cadena)
+        for l in match.group().split('\n')[2:-1]:
+            v = l.split(' ')
+            if v[1] == 'redistribute':
+                self.ospf[v[1]].append(str(v[2]) + " " + str(v[3]))
+            else:
+                self.ospf[str(v[1]) + 's'].append((v[2], v[3], v[5]))
+
+        # Obtener snmp
+        ospfpat = re.compile('snmp-server host ([\d.]+) version (\d) auth ([\w ]+)')
+        host, version, ip = ospfpat.findall(cadena)[0]
+        self.snmp['host'] = host
+        self.snmp['version'] = version
+        self.snmp['user'] = ip
+
+        # Obtener tftp
+        ospfpat = re.compile('tftp-server nvram:([\w ]+)')
+        match = ospfpat.search(cadena)[0]
 
 
 def obtener_routers_template():
@@ -132,5 +154,5 @@ def obtener_router_archivo(archivo):
     return r
 
 
-print(obtener_routers_template()[1])
+print(obtener_routers_template()[3])
 print(obtener_router_archivo('config'))

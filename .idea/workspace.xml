@@ -5,7 +5,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Redes/Puller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Redes/Puller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Redes/Redes/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Redes/Redes/settings.py" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/Redes/accountManage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Redes/accountManage/views.py" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/Redes/TemplateAnalyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Redes/TemplateAnalyzer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Redes/archivos/config" beforeDir="false" afterPath="$PROJECT_DIR$/Redes/archivos/config" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +28,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Redes/FaultManage.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="135">
               <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+=======
+            <state relative-caret-position="210">
+              <caret line="135" selection-start-line="135" selection-end-line="135" />
+>>>>>>> Stashed changes
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -35,16 +45,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Redes/Puller.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="505">
               <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
+=======
+            <state relative-caret-position="1680">
+              <caret line="112" selection-start-line="112" selection-end-line="112" selection-end-column="45" />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< Updated upstream
         <entry file="file://$PROJECT_DIR$/Redes/performanceManage/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -68,6 +84,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
               <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+=======
+        <entry file="file://$PROJECT_DIR$/Redes/template">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -98,9 +120,13 @@
         <option value="$PROJECT_DIR$/Redes/prueba.json" />
         <option value="$PROJECT_DIR$/Redes/AnalyzeJson.py" />
         <option value="$PROJECT_DIR$/Redes/flows.json" />
+<<<<<<< Updated upstream
+=======
+        <option value="$PROJECT_DIR$/Redes/accountManage/views.py" />
+>>>>>>> Stashed changes
         <option value="$PROJECT_DIR$/Redes/Subnetworks" />
-        <option value="$PROJECT_DIR$/Redes/TemplateAnalyzer.py" />
         <option value="$PROJECT_DIR$/Redes/archivos/config" />
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/Redes/accountManage/views.py" />
         <option value="$PROJECT_DIR$/Redes/manage.py" />
         <option value="$PROJECT_DIR$/Redes/Redes/settings.py" />
@@ -108,10 +134,14 @@
         <option value="$PROJECT_DIR$/Redes/Puller.py" />
         <option value="$PROJECT_DIR$/Redes/FaultManagement/views.py" />
         <option value="$PROJECT_DIR$/Redes/FaultManage.py" />
+=======
+        <option value="$PROJECT_DIR$/Redes/Redes/settings.py" />
+        <option value="$PROJECT_DIR$/Redes/TemplateAnalyzer.py" />
+>>>>>>> Stashed changes
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="67" />
     <option name="y" value="25" />
     <option name="width" value="650" />
@@ -285,7 +315,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32899022" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32899022" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -531,6 +561,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/Redes/archivos/config">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-250">
@@ -568,6 +599,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Redes/configManage/views.py">
+=======
+    <entry file="file://$PROJECT_DIR$/PerformanceManagement.py">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
@@ -577,6 +611,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/Redes/configManage/models.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -587,6 +622,24 @@
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/SNMPget.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Redes/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Redes/Redes/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -595,8 +648,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Redes/performanceManage/views.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="135">
           <caret line="30" column="72" selection-start-line="29" selection-start-column="8" selection-end-line="30" selection-end-column="72" />
+=======
+        <state relative-caret-position="210">
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
+>>>>>>> Stashed changes
           <folding>
             <element signature="e#0#72#0" expanded="true" />
           </folding>
@@ -630,6 +688,20 @@
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Redes/archivos/config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1680">
+          <caret line="112" selection-start-line="112" selection-end-line="112" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Redes/template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
         </state>
       </provider>
     </entry>
