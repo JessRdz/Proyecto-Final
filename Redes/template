@@ -1,6 +1,6 @@
 hostname:R1
 interfaces{
-Serial0/0:10.0.80.1:255.255.255.252,"R1 se conecta a R2"
+Serial0/0:10.0.80.3:255.255.255.252,"R1 se conecta a R2"
 Serial0/1:10.0.80.13:255.255.255.252,"R1 se conecta a R3"
 }
 

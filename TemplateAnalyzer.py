@@ -114,25 +114,23 @@ class Router:
         #Obtener eigrp
         eigrpat = re.compile('router eigrp 100\n( redistribute [\w ]+\n)*( network [\d.]+ [\d.]+\n)* ')
         match = eigrpat.search(cadena)
-        if match is not None:
-            for l in match.group().split('\n')[1:-1]:
-                v = l.split(' ')
-                if v[1] == 'redistribute':
-                    self.eigrp[v[1]].append(str(v[2]) + " " + str(v[3]))
-                else:
-                    self.eigrp[str(v[1]) + 's'].append((v[2], v[3]))
+        for l in match.group().split('\n')[1:-1]:
+            v = l.split(' ')
+            if v[1] == 'redistribute':
+                self.eigrp[v[1]].append(str(v[2]) + str(v[3]))
+            else:
+                self.eigrp[str(v[1]) + 's'].append((v[2], v[3]))
 
         # Obtener ospf
         ospfpat = re.compile('router ospf 1\n[ log\-adjacency\-changes\n]*'
                              '( redistribute [\w ]+\n)*( network [\d.]+ [\d.]+ area \d\n)*!')
         match = ospfpat.search(cadena)
-        if match is not None:
-            for l in match.group().split('\n')[2:-1]:
-                v = l.split(' ')
-                if v[1] == 'redistribute':
-                    self.ospf[v[1]].append(str(v[2]) + " " + str(v[3]))
-                else:
-                    self.ospf[str(v[1]) + 's'].append((v[2], v[3], v[5]))
+        for l in match.group().split('\n')[2:-1]:
+            v = l.split(' ')
+            if v[1] == 'redistribute':
+                self.ospf[v[1]].append(str(v[2]) + " " + str(v[3]))
+            else:
+                self.ospf[str(v[1]) + 's'].append((v[2], v[3], v[5]))
 
         # Obtener snmp
         ospfpat = re.compile('snmp-server host ([\d.]+) version (\d) auth ([\w ]+)')
@@ -209,7 +207,7 @@ def obtener_diferencias(rconf, rtemp):
 
 
     #SNMP configuration
-    if rconf.snmp["user"].strip() != rtemp.snmp["user"].strip():
+    if rconf.snmp["user"] != rtemp.snmp["user"]:
         resultado = resultado + "<tr><td> SNMP user</td><td>" + rtemp.snmp["user"] + "</td>" \
                     "<td>" + rconf.snmp["user"] + "</td></tr>"
 
@@ -226,27 +224,14 @@ def obtener_diferencias(rconf, rtemp):
         resultado = resultado + "<tr><td> TFTP</td><td>" + rtemp.tftp["nvram"] + "</td>" \
                     "<td>" + rconf.tftp["nvram"] + "</td></tr>"
 
-    if resultado != "":
-        resultado = "<table>" \
-                    "<tr>" \
-                    "<th>Campo</th><th>Template</th><th>Configuración</th>" \
-                    "</tr>" + resultado + "</table>"
-
-    return resultado
-
 def verificar(router):
-    confrouter = obtener_router_archivo(routers[router][0])
+    confrouter = obtener_router_archivo('archivos/' + routers[router][0])
     x, num = router.split("R")
-    temprouter = obtener_routers_template()[int(num)-1]
+    temprouter = obtener_routers_template()[int(num)]
 
-    resultado = obtener_diferencias(confrouter, temprouter)
-    if resultado == "":
-        resultado = "La configuración del router es correcta..."
-    return resultado
+    return obtener_diferencias(confrouter, temprouter)
 
 
-r1 = obtener_routers_template()[3]
-r2 = obtener_router_archivo('config')
-print(r1)
-print(r2)
-# print(obtener_diferencias(r1,r2))
+
+print(obtener_routers_template()[3])
+print(obtener_router_archivo('config'))

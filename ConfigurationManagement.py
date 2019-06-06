@@ -11,7 +11,7 @@ from SNMPget import getSNMP
 ips = Puller.conocer_red()
 ips.remove(["50.0.0.2", 0])
 inventario = {}
-directorio = "archivos/"
+directorio = "Redes/archivos/"
 mibSysdesc = "1.3.6.1.2.1.1.1.0"
 chasisId = "1.3.6.1.4.1.9.3.6.3.0"
 mib = {"1.3.6.1.4.1.9.3.6.11.1.3",

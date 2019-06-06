@@ -2,6 +2,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.shortcuts import render
 import ConfigurationManagement as config
+import TemplateAnalyzer as template
 from django.views import generic
 from .models import Reporte
 
@@ -25,6 +26,14 @@ def nuevo_reporte(request, ip, descripcion, fecha):
     r = Reporte(ip=ip, descripcion=descripcion, fecha=fecha)
     r.save()
     success_url = reverse_lazy('reportes')
+
+def verificar_configuracion(request):
+    router = request.GET['dispositivo']
+    return render(
+        request,
+        'index.html',
+        context={'tabla': template.verificar(router), 'router': router}
+    )
 
 class ReporteListView(generic.ListView):
     model = Reporte

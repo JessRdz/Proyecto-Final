@@ -6,6 +6,18 @@
 	<form action='obtenerInventario' method='GET'>
 		<button type='submit'> Obtener inventario</button>
 	</form>
+	<form action='verificarConfiguracion' method='GET'>
+		<label for="dispositivo"> Verificar dispositivo: </label><br>
+		<input id="dispositivo" type="text" name="dispositivo" placeholder="Nombre del dispositivo">
+		<button type='submit'> Aceptar </button>
+	</form>
+	{% if dispositivos %}
 	<h3>Inventario:</h3> {{ dispositivos|safe }}
+	{% endif %}
+
+	{% if tabla %}
+	<h3>Resultado de {{ router }}:</h3><br>
+	{{ tabla|safe }}
+	{% endif %}
 
 {% endblock %}

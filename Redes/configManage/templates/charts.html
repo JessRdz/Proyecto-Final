@@ -142,9 +142,7 @@
 </form>
 <form action='mostrarFlows' method='POST'>{% csrf_token %}
 	<label for="ip_source"> Mostrar consumo proveniente de: </label><br>
-	<input id="ip_source" type="text" name="ip_source" placeholder="IP origen">
-	<label for="ip_destino"> hacia </label>
-	<input id="ip_destino" type="text" name="ip_destino" placeholder="IP destino">
+	<input id="ip_source" type="text" name="ip_source" placeholder="Nombre del dispositivo">
 	<label for="fecha_ini"> del </label>
 	<input id="fecha_ini" type="datetime-local" name="fecha_ini" placeholder="Fecha inicio">
 	<label for="fecha_fin"> al </label>

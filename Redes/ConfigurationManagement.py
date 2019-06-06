@@ -9,6 +9,7 @@ import time
 from SNMPget import getSNMP
 import requests
 
+host = '50.0.0.2'
 inventario = {}
 directorio = "archivos/"
 mibSysdesc = "1.3.6.1.2.1.1.1.0"
@@ -34,7 +35,7 @@ def obtenerConfiguraciones():
                     filecmp.clear_cache()
                     if not f.readlines() == ftemp.readlines():  # Regresa true si son iguales
                         print("Cambios detectados en el archivo de: " + router)
-                        r = requests.get("http://127.0.0.1:8000/configManage/reportes/" + router +
+                        r = requests.get("http://" + host + ":8000/configManage/reportes/" + router +
                                          "/Se detectaron cambios en el archivo de configuración." + "/" + time.strftime("%c"))
                         shutil.move( directorio + router + "-temp", directorio + router)
                     else:
