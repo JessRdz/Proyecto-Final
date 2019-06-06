@@ -1,5 +1,5 @@
 {% extends "base_generic.html" %}
-{% block title %}<title>Accounting Management</title>{% endblock %}
+
 <script>
 {% block jquery %}
 
@@ -131,25 +131,25 @@
 
 {% endblock %}
 </script>
-
+{% block title %}<title>Accounting Management</title>{% endblock %}
 {% block subtitle %}Accounting Management{% endblock %}
 
 {% block content %}
 
 
 <form action='actualizarFlows' method='GET'>
-	<button type='submit' class="btn btn-secondary"> Actualizar</button>
+	<button type='submit' class="btn btn-secondary"> Actualizar</button><br>
 </form>
 <form action='mostrarFlows' method='POST'>{% csrf_token %}
-	<label for="ip_source"> Mostrar consumo proveniente de: </label><br>
-	<input id="ip_source" type="text" name="ip_source" placeholder="Nombre del dispositivo">
+	<br><label for="ip_source"> Mostrar consumo proveniente de: </label><br>
+	<br><input id="ip_source" type="text" name="ip_source" placeholder="Nombre del dispositivo">
 	<label for="fecha_ini"> del </label>
 	<input id="fecha_ini" type="datetime-local" name="fecha_ini" placeholder="Fecha inicio">
 	<label for="fecha_fin"> al </label>
 	<input id="fecha_fin" type="datetime-local" name="fecha_fin" placeholder="Fecha fin">
 	<input type="submit" value="Mostrar" class="btn btn-primary">
 	<div class="form-check">
-	  <input class="form-check-input" type="radio" name="servicios" id="servicios" value="1">
+	  <br><input class="form-check-input" type="radio" name="servicios" id="servicios" value="1">
 	  <label class="form-check-label" for="servicios">
 		Contar todos los servicios
 	  </label>

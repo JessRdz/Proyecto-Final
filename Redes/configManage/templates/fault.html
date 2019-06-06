@@ -1,11 +1,13 @@
 {% extends "base_generic.html" %}
-
+{% block title %}<title>Fault Management</title>{% endblock %}
+{% block subtitle %}Fault Management{% endblock %}
 {% block content %}
-<h1>Configuration Management</h1>
+
+
 
 	<form action='mostrarDispositivos' method='GET'>
-		<button type='submit'> Mostrar dispositivos </button>
-	</form>
+		<br><button type='submit' class="btn btn-secondary"> Mostrar dispositivos </button><br>
+	</form><br>
 <h3>Dispositivos:</h3> <div id="texto"> {{ dispositivos|safe }} </div>
 
 {% endblock %}

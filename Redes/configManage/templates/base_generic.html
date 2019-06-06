@@ -24,18 +24,18 @@
       <div class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="#">FCAPS</a>
           <div class="navbar-nav">
-            <a class="nav-item nav-link" href="http://50.0.0.2:8000/faultManage/">Fault</a>
-            <a class="nav-item nav-link" href="http://50.0.0.2:8000/configManage/">Configuration</a>
-            <a class="nav-item nav-link" href="http://50.0.0.2:8000/accountManage/">Accounting</a>
-            <a class="nav-item nav-link" href="http://50.0.0.2:8000/performanceManage/estadisticas/">Performance</a>
-            <a class="nav-item nav-link" href="http://50.0.0.2:8000/configManage/reportes/">Reportes</a>
+            <a class="nav-item nav-link" href="http://10.10.10.83:8000/faultManage/">Fault</a>
+            <a class="nav-item nav-link" href="http://10.10.10.83:8000/configManage/">Configuration</a>
+            <a class="nav-item nav-link" href="http://10.10.10.83:8000/accountManage/">Accounting</a>
+            <a class="nav-item nav-link" href="http://10.10.10.83:8000/performanceManage/estadisticas/">Performance</a>
+            <a class="nav-item nav-link" href="http://10.10.10.83:8000/configManage/reportes/">Reportes</a>
           </div>
       </div>
       {% endblock %} 
       
 
       <div class="col-sm-12 "><br><br>
-      <div class="p-3 mb-2 bg-primary text-white"><h3>{% block subtitle %}{% endblock %}</h3></div>
+      <div class="p-3 mb-2 bg-primary text-white"><h3>{% block subtitle %}Configuration Management{% endblock %}</h3></div>
       {% block content %}{% endblock %}
       </div>
 

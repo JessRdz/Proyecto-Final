@@ -7,17 +7,17 @@
 <div class="row">
 	<h4>Rendimiento del dispositivo</h4>
 	<form action='mostrarPerformance' method='POST'>{% csrf_token %}
-		<label for="ip_source"> Mostrar rendimiento del dispositivo: </label><br>
+		<br><br><label for="ip_source"> Mostrar rendimiento del dispositivo: </label><br>
 		<input id="ip_source" type="text" name="ip_source" placeholder="Nombre del dispositivo">
 		<label for="fecha_ini"> del </label>
 		<input id="fecha_ini" type="datetime-local" name="fecha_ini" placeholder="Fecha inicio">
 		<label for="fecha_fin"> al </label>
 		<input id="fecha_fin" type="datetime-local" name="fecha_fin" placeholder="Fecha fin">
-		<input type="submit" value="Mostrar">
+		<input type="submit" value="Mostrar" class="btn btn-primary">
 	</form>
 </div>
 <form action='mostrarLinks' method='GET'>
-	<button type='submit'>10 Links</button>
+	<br><br><button type='submit' class="btn btn-secondary">10 Links</button>
 </form>
 	{% if interfaces %}
 <h3>10 interfaces más cargadas: </h3><br>
